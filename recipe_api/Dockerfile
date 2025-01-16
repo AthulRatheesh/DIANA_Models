@@ -21,8 +21,9 @@ COPY recipe_api/models/ models/
 ENV MODEL_PATH=models/recipe_qa_model.joblib
 ENV PORT=8000
 
+RUN echo "MODEL_PATH is set to: $MODEL_PATH"
+
 # Expose port
 EXPOSE 8000
-
-# Run the application
-CMD ["uvicorn", "recipe_api:app", "--host", "0.0.0.0", "--port", "8000"]
+#Run the app
+CMD ["sh", "-c", "echo \"Running with MODEL_PATH=$MODEL_PATH\" && uvicorn recipe_api:app --host 0.0.0.0 --port 8000"]
