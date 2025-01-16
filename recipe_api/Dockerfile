@@ -3,7 +3,7 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy requirements first for better caching
-COPY recipe_api/requirements.txt .
+COPY recipe_api/recipe_requirements.txt .
 RUN pip install --no-cache-dir -r recipe_requirements.txt
 
 # Download NLTK data
