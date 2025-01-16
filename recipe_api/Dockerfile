@@ -15,7 +15,7 @@ RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); 
 # Copy the rest of the application
 COPY recipe_api.py .
 COPY recipe_QA.py .
-COPY models/ models/
+COPY models/
 
 # Set environment variables
 ENV MODEL_PATH=models/QAModel.joblib
