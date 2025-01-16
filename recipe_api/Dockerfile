@@ -4,9 +4,8 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Copy requirements first for better caching
-COPY recipe_requirements.txt .
+COPY recipe_api/recipe_requirements.txt .
 
-RUN mkdir models
 # Install dependencies
 RUN pip install --no-cache-dir -r recipe_requirements.txt
 
@@ -14,9 +13,9 @@ RUN pip install --no-cache-dir -r recipe_requirements.txt
 RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger')"
 
 # Copy the rest of the application
-COPY recipe_api.py .
-COPY recipe_QA.py .
-COPY models/ models/
+COPY recipe_api/recipe_api.py .
+COPY recipe_api/recipe_QA.py .
+COPY recipe_api/models/ models/
 
 # Set environment variables
 ENV MODEL_PATH=models/QAModel.joblib
