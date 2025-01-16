@@ -6,6 +6,7 @@ WORKDIR /app
 # Copy requirements first for better caching
 COPY recipe_requirements.txt .
 
+RUN mkdir models
 # Install dependencies
 RUN pip install --no-cache-dir -r recipe_requirements.txt
 
@@ -15,7 +16,7 @@ RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); 
 # Copy the rest of the application
 COPY recipe_api.py .
 COPY recipe_QA.py .
-COPY models/
+COPY models/ models/
 
 # Set environment variables
 ENV MODEL_PATH=models/QAModel.joblib
