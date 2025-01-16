@@ -7,6 +7,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 import re
+import os
 
 class RecipeQABackend:
     def __init__(self, model_path: str):
