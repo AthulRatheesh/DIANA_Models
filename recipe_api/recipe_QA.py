@@ -10,16 +10,17 @@ import re
 
 class RecipeQABackend:
     def __init__(self, model_path: str):
-        """
-        Initialize the Recipe QA Backend
-        
-        Args:
-            model_path (str): Path to the saved .joblib model file
-        """
         logging.basicConfig(level=logging.INFO)
-        self.logger = logging.getLogger(__name__)
-        
+        self.logger = logging.getLogger("recipe_QA")
+    
         try:
+        # Verify input
+            if not isinstance(model_path, str):
+                raise ValueError(f"Expected string path, got {type(model_path)}: {model_path}")
+            
+        # Verify file exists
+            if not os.path.exists(model_path):
+                raise FileNotFoundError(f"Model file not found at: {model_path}")
             # Load the saved model components
             self.logger.info(f"Loading model from {model_path}")
             model_data = joblib.load(model_path)
