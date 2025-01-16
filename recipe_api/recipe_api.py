@@ -41,7 +41,7 @@ class RecipeResponse(BaseModel):
 async def startup_event():
     global qa_backend
     try:
-        model_path = os.getenv("MODEL_PATH", "models/QAModel.joblib")
+        model_path = os.getenv("MODEL_PATH", "models/recipe_qa_model.joblib")
         qa_backend = RecipeQABackend(model_path)
     except Exception as e:
         print(f"Error loading model: {str(e)}")
