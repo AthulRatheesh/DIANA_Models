@@ -17,10 +17,6 @@ COPY recipe_api/recipe_QA.py .
 RUN mkdir -p models
 COPY recipe_api/models/recipe_qa_model.joblib models/
 
-# Verify files and permissions
-RUN ls -la /app && \
-    ls -la /app/models && \
-    python -c "import joblib; print('Model test:', joblib.load('/app/models/recipe_qa_model.joblib'))"
 
 ENV MODEL_PATH=/app/models/recipe_qa_model.joblib
 ENV PORT=8000
