@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger')"
 
 # Copy the rest of the application
-COPY recipe_page.py .
+COPY recipe_api.py .
 COPY recipe_QA.py .
 COPY models/ models/
 
