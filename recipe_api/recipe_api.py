@@ -41,10 +41,19 @@ class RecipeResponse(BaseModel):
 async def startup_event():
     global qa_backend
     try:
-        model_path = os.getenv("MODEL_PATH", "models/recipe_qa_model.joblib")
+        # Use absolute path and debug prints
+        model_path = os.path.abspath(os.getenv("MODEL_PATH", "models/recipe_qa_model.joblib"))
+        print("=" * 50)
+        print(f"Current working directory: {os.getcwd()}")
+        print(f"Loading model from absolute path: {model_path}")
+        print(f"Directory contents: {os.listdir('.')}")
+        print(f"Models directory contents: {os.listdir('models')}")
+        print("=" * 50)
+        
         qa_backend = RecipeQABackend(model_path)
     except Exception as e:
         print(f"Error loading model: {str(e)}")
+        print(f"Model path type: {type(model_path)}")
         raise
 
 @app.get("/")
