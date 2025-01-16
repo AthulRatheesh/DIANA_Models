@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from recipe_backend import RecipeQABackend
+from recipe_QA import RecipeQABackend
 import os
 from typing import List, Dict, Union, Optional
 from fastapi.middleware.cors import CORSMiddleware
