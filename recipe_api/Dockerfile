@@ -18,7 +18,7 @@ COPY recipe_api/recipe_QA.py .
 COPY recipe_api/models/ models/
 
 # Set environment variables
-ENV MODEL_PATH=models/QAModel.joblib
+ENV MODEL_PATH=models/recipe_qa_model.joblib
 ENV PORT=8000
 
 # Expose port
