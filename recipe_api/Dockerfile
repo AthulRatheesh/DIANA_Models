@@ -7,7 +7,7 @@ COPY recipe_api/recipe_requirements.txt .
 RUN pip install --no-cache-dir -r recipe_requirements.txt
 
 # Download NLTK data
-RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger')"
+RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger'); nltk.download('punkt_tab')"
 
 # Copy the rest of the application
 COPY recipe_api/recipe_api.py .
