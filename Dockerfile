@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y libgomp1
 
 # Copy and install requirements
 COPY recipe_api/recipe_requirements.txt .
-COPY image_/image_requirements.txt .
+COPY image_recog/image_requirements.txt .
 RUN pip install --no-cache-dir -r recipe_requirements.txt -r image_requirements.txt
 
 # Download NLTK data
