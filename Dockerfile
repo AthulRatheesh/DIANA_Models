@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y libgomp1
 
 # Copy and install requirements
 COPY recipe_api/recipe_requirements.txt .
-COPY image_api/image_requirements.txt .
+COPY image_/image_requirements.txt .
 RUN pip install --no-cache-dir -r recipe_requirements.txt -r image_requirements.txt
 
 # Download NLTK data
@@ -15,14 +15,14 @@ RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); 
 
 # Copy application files
 COPY recipe_api/recipe_QA.py .
-COPY image_api/Image_recom_backend.py .
+COPY image_recog/Image_recom_backend.py .
 COPY main.py .
 
 # Create models directory and copy models
 RUN mkdir -p models
 COPY recipe_api/models/recipe_qa_model.joblib models/
-COPY image_api/models/model.h5 models/
-COPY image_api/models/class_indices.json models/
+COPY image_recog/models/model.h5 models/
+COPY image_recog/models/class_indices.json models/
 
 # Set environment variables
 ENV RECIPE_MODEL_PATH=/app/models/recipe_qa_model.joblib
