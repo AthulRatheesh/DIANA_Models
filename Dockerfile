@@ -14,9 +14,8 @@ RUN pip install --no-cache-dir -r recipe_requirements.txt -r image_requirements.
 RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger'); nltk.download('punkt_tab')"
 
 # Copy application files
-COPY recipe_api/recipe_api.py .
 COPY recipe_api/recipe_QA.py .
-COPY image_api/image_backend.py .
+COPY image_api/Image_recom_backend.py .
 COPY main.py .
 
 # Create models directory and copy models
