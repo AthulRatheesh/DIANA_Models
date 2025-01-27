@@ -11,7 +11,7 @@ COPY image_recog/image_requirements.txt image_recog/
 RUN pip install --no-cache-dir -r recipe_api/recipe_requirements.txt -r image_recog/image_requirements.txt
 
 # Download NLTK data
-RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger')"
+RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet'); nltk.download('averaged_perceptron_tagger');nltk.download('punkt_tab')"
 
 # Copy directories maintaining structure
 COPY recipe_api/ recipe_api/
