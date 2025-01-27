@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException, File, UploadFile
 from pydantic import BaseModel
 from recipe_api.recipe_QA import RecipeQABackend
-from image_recog.image_backend import ImagePredictor
+from image_recog.Image_recom_backend import ImagePredictor
 from fastapi.middleware.cors import CORSMiddleware
 from typing import List, Dict, Union, Optional
 import os
